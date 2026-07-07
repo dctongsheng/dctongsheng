@@ -4,6 +4,14 @@ AI Agent for science. I build tools for research workflows, text mining, automat
 
 [Website](https://hebox.one) · [GitHub](https://github.com/dctongsheng)
 
+<div align="center">
+
+<a href="https://vibecafe.ai/usage">
+  <img src="https://raw.githubusercontent.com/dctongsheng/dctongsheng/master/vibe-usage-card.svg" alt="Vibe Usage — 7 day stats" width="100%">
+</a>
+
+</div>
+
 ## About
 
 - Focus: AI Agents, scientific research workflows, data analysis, and automation tools
