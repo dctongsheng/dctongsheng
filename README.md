@@ -19,17 +19,6 @@ AI Agent for science. I build tools for research workflows, text mining, automat
 - Main stack: Python, TypeScript, Jupyter Notebook, GitHub Actions, LLM tooling
 - Current direction: personal AI workbench, research agents, article collection, and knowledge workflows
 
-## Featured Projects
-
-| Project | What it is | Stack |
-| --- | --- | --- |
-| [n-grama-and-wordvect-Analysis-of-the-text](https://github.com/dctongsheng/n-grama-and-wordvect-Analysis-of-the-text) | Text analysis project focused on 红楼梦, n-gram, and word vectors | Python |
-| [WeChat_Article_Get](https://github.com/dctongsheng/WeChat_Article_Get) | Tooling for collecting and processing WeChat articles | Python |
-| [Term-standardization-and-text-mining](https://github.com/dctongsheng/Term-standardization-and-text-mining) | Text mining and term standardization experiments with BERT models | Python |
-| [An-Early-Screening-Model-for-Preeclampsia](https://github.com/dctongsheng/An-Early-Screening-Model-for-Preeclampsia-Utilizing-Zero--Cost-Maternal-Predictors-Exclusively) | Early screening model for preeclampsia using maternal predictors | Jupyter Notebook |
-| [hard-sci-fi-writer](https://github.com/dctongsheng/hard-sci-fi-writer) | Claude Code skill for hard science fiction writing workflows | Skill / Prompt |
-| [autogen_tiyan](https://github.com/dctongsheng/autogen_tiyan) | Experiments and examples around AutoGen-style agent workflows | Python |
-
 ## Work Themes
 
 - Agent-native workflows for research, coding, and knowledge work
