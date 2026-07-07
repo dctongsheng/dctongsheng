@@ -37,12 +37,6 @@ AI Agent for science. I build tools for research workflows, text mining, automat
 - Scientific data analysis and practical machine learning models
 - Personal productivity systems powered by LLMs and automation
 
-## GitHub Overview
-
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=dctongsheng&show_icons=true&hide_border=true)
-
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=dctongsheng&layout=compact&hide_border=true)
-
 ## Contact
 
 - Website: [hebox.one](https://hebox.one)
