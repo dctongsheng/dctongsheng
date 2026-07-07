@@ -1,4 +1,4 @@
-# 漂涯 | dctongsheng
+# douge | dctongsheng
 
 AI Agent for science. I build tools for research workflows, text mining, automation, and practical AI applications.
 
