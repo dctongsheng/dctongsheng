@@ -162,22 +162,15 @@ function buildDays(curB, curFrom) {
   return days;
 }
 
-function buildHeat(curS) {
+export function buildHeat(curB) {
   const heat = Array.from({ length: 7 }, () => new Array(24).fill(0));
 
-  for (const session of curS) {
-    const first = new Date(session.firstMessageAt);
-    const hours = Array.isArray(session.userPromptHours) ? session.userPromptHours : [];
+  for (const bucket of curB) {
+    const value = (Number(bucket.totalTokens) || 0) + (Number(bucket.cachedInputTokens) || 0);
+    if (!value) continue;
 
-    for (let hUtc = 0; hUtc < 24; hUtc += 1) {
-      const value = Number(hours[hUtc]) || 0;
-      if (!value) continue;
-
-      const shifted = hUtc + TZ_OFFSET_H;
-      const hLocal = shifted % 24;
-      const dow = (first.getUTCDay() + (shifted >= 24 ? 1 : 0)) % 7;
-      heat[dow][hLocal] += value;
-    }
+    const local = new Date(localMs(bucket.bucketStart));
+    heat[local.getUTCDay()][local.getUTCHours()] += value;
   }
 
   return heat;
@@ -303,9 +296,9 @@ function heatPanel({ x, y, w, h, heat }) {
 }
 
 export function renderSvg({ buckets = [], sessions = [], nowMs = Date.now() }) {
-  const { curFrom, curB, curS, cur, prev } = splitUsage({ buckets, sessions }, nowMs);
+  const { curFrom, curB, cur, prev } = splitUsage({ buckets, sessions }, nowMs);
   const days = buildDays(curB, curFrom);
-  const heat = buildHeat(curS);
+  const heat = buildHeat(curB);
 
   const W = 1024;
   const PAD = 16;
@@ -365,7 +358,7 @@ export function renderSvg({ buckets = [], sessions = [], nowMs = Date.now() }) {
 }
 
 export async function fetchUsage(apiKey = getApiKey()) {
-  const res = await fetch('https://vibecafe.ai/api/usage?days=14', {
+  const res = await fetch('https://vibecafe.ai/api/usage?days=14&granularity=hour', {
     headers: { Authorization: `Bearer ${apiKey}` },
   });
 

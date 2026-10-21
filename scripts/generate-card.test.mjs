@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 
 import {
+  buildHeat,
   delta,
   fmtHrs,
   fmtTok,
@@ -33,7 +34,6 @@ const sessions = [
     messageCount: 12,
     userMessageCount: 5,
     firstMessageAt: '2026-07-06T16:30:00.000Z',
-    userPromptHours: Array.from({ length: 24 }, (_, i) => (i === 8 ? 3 : 0)),
   },
 ];
 
@@ -44,6 +44,10 @@ assert.equal(totals.cached, 500);
 assert.equal(totals.sessions, 1);
 assert.equal(totals.msgs, 12);
 assert.equal(totals.userMsgs, 5);
+
+const heat = buildHeat(buckets);
+assert.equal(heat[2][0], 1500);
+assert.equal(heat.flat().reduce((a, b) => a + b, 0), 1500);
 
 const svg = renderSvg({ buckets, sessions, nowMs: Date.UTC(2026, 6, 7, 12, 0, 0) });
 assert.match(svg, /Vibe Usage 7-day dashboard/);
